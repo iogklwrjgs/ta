@@ -24,7 +24,9 @@ public class ExchangeRateTest {
     @Test(description = "Check that selling rate is greater than purchase rate")
     public void checkExchangeRates() {
         googleHomePage.open();
-        GoogleSearchResultsPage googleSearchResultsPage = googleHomePage.search("Открытие");
+        googleHomePage.typeSearchQuery("Открытие");
+        googleHomePage.closeHintDropDownListByPressingEscapeKey();
+        GoogleSearchResultsPage googleSearchResultsPage = googleHomePage.clickSearchButton();
         List<String> links = googleSearchResultsPage.getLinks();
         SoftAssert softAssert = new SoftAssert();
         String targetLink = "www.open.ru";
